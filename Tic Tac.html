@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<button class="all" onclick="changestate(0)"></button>
+		<button class="all" onclick="changestate(1)"></button>
+		<button class="all" onclick="changestate(2)"></button><br>
+		<button class="all" onclick="changestate(3)"></button>
+		<button class="all" onclick="changestate(4)"></button>
+		<button class="all" onclick="changestate(5)"></button><br>
+		<button class="all" onclick="changestate(6)"></button>
+		<button class="all" onclick="changestate(7)"></button>
+		<button class="all" onclick="changestate(8)"></button>
+	</div>
+	<div>
+		<button class='fall' onclick="restart()">Restart</button>
+	</div>
+
+	<div>
+		<p id='cross'></p>
+	</div>
+	<div>
+		<p id='nought'></p>
+	</div>
+
+	<div>
+		<p id='draw'></p>
+	</div>
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+        currentstate='x';
+		numberofbox= 9;
+		moves=0;
+		x = 0;
+		y = 0;
+		z = 0;
+	function changestate(i) {
+		// console.log(i);
+		temp=document.getElementsByClassName('all');
+		temp[i].innerText=currentstate;
+        moves++;
+		 if(currentstate=='x')
+		 {
+		 	currentstate='0'
+		 } else {
+		 	currentstate='x';
+		 }
+		 if(temp[0].innerText == 'x' && temp[1].innerText =='x' && temp[2].innerText=='x' || temp[0].innerText=='x' && temp[4].innerText=='x' && temp[8].innerText=='x' || temp[3].innerText=='x' && temp[4].innerText=='x' && temp[5].innerText=='x' || temp[6].innerText=='x' && temp[7].innerText=='x' && temp[8].innerText=='x' || temp[2].innerText=='x' && temp[4].innerText=='x' && temp[6].innerText=='x' || temp[0].innerText=='x' && temp[3].innerText=='x' && temp[6].innerText=='x' || temp[1].innerText=='x' && temp[4].innerText=='x' && temp[7].innerText=='x' || temp[2].innerText=='x' && temp[5].innerText=='x' && temp[8].innerText=='x'){
+              alert('Cross wins the Game');  
+			  x++
+			  restart()
+			  //console.log('hell')
+			 document.getElementById('cross').innerHTML= 'Crosses Wins' + x;
+			  currentstate= null
+			  
+		 } else if(temp[0].innerText == '0' && temp[1].innerText =='0' && temp[2].innerText=='0' || temp[0].innerText=='0' && temp[4].innerText=='0' && temp[8].innerText=='0' || temp[3].innerText=='0' && temp[4].innerText=='0' && temp[5].innerText=='0' || temp[6].innerText=='0' && temp[7].innerText=='0' && temp[8].innerText=='0' || temp[2].innerText=='0' && temp[4].innerText=='0' && temp[6].innerText=='0' || temp[0].innerText=='0' && temp[3].innerText=='0' && temp[6].innerText=='0' || temp[1].innerText=='0' && temp[4].innerText=='0' && temp[7].innerText=='0' || temp[2].innerText=='0' && temp[5].innerText=='0' && temp[8].innerText=='0'){
+             alert('Nought Wins The Game')
+			 y++
+			 restart()
+			 document.getElementById('nought').innerHTML= 'Noughts Wins' + y;
+			 currentstate=null}
+			/* o=0
+			 o++
+			 document.write(o)*/
+
+         else {
+			 console.log('heaven')
+		 }
+		 
+
+         
+        
+         if(moves == numberofbox){
+             alert('draw')
+			 z++
+			 document.getElementById('draw').innerHTML='Total Number Of Draws'+ z;
+         }
+         else{
+             console.log('draw')
+         }
+
+		 
+         
+         
+           
+		 	  
+	
+         
+	}
+	function restart() {
+
+		   
+		temp=document.getElementsByClassName('all');
+			temp[0].innerText = null
+			temp[1].innerText = null
+			temp[2].innerText = null
+			temp[3].innerText = null
+			temp[4].innerText = null
+			temp[5].innerText = null
+			temp[6].innerText = null
+			temp[7].innerText = null
+			temp[8].innerText = null
+ 
+            currentstate='x';
+			moves=0;
+			/*for(i=0; i>8; i+1){
+				temp[i].innerText=2;
+			}*/
+			 
+				 
+			 
+
+		 }
+
+</script>
+<style type="text/css">
+	.all {
+		background-color: black;
+		color: white;
+		padding: 20px;
+		margin: 10px;
+		border: none;
+		cursor: pointer;
+	}
+     .fall {background-color: brown;
+	        color: white;
+			padding: 3px;
+			margin: 2px;
+			border: black;
+			border-radius: 4px;
+
+}
+</style>
